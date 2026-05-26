@@ -4,7 +4,7 @@ import { useCreateProject } from "@/features/project/create-project";
 import type { IUserResponse } from "@/entities/user";
 
 export const useCreateProjectForm = () => {
-    const [markdown, setMarkdown] = useState("### Начните расписывать ваш проект");
+    const [markdown, setMarkdown] = useState("");
     const [title, setTitle] = useState("");
     const [projectLink, setProjectLink] = useState("");
     const [projectTags, setProjectTags] = useState<string[]>([]);

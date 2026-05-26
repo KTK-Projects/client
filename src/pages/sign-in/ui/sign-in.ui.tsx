@@ -19,7 +19,7 @@ export const SignInPage: React.FC = () => {
                         "max-md:text-[16px] max-sm:text-center max-sm:w-full max-sm:right-0",
                     )}
                 >
-                    Зарегестрироваться
+                    Зарегистрироваться
                 </Link>
             }
         >

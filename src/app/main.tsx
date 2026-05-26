@@ -8,12 +8,14 @@ import { queryClient } from "./providers/query-client.ts";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ToastContainer } from "react-toastify";
 import { TooltipProvider } from "@/shared/components/ui/tooltip.tsx";
+import ScrollToTop from "@/shared/lib/scroll-to-top.tsx";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <QueryClientProvider client={queryClient}>
             <TooltipProvider>
                 <BrowserRouter>
+                    <ScrollToTop />
                     <App />
                     <ReactQueryDevtools />
                     <ToastContainer position="bottom-right" />

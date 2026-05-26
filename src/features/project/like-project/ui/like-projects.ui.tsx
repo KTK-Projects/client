@@ -11,10 +11,17 @@ interface ILikeProjectProps {
 export const LikeProject: React.FC<ILikeProjectProps> = ({ likes, isLiked, projectId }) => {
     const { toggleLikeFun } = useToggleLike(!isLiked);
 
+    const handleToggleLike = (event: React.MouseEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        toggleLikeFun({ projectId });
+    };
+
     return (
         <div
             className={`flex items-center gap-2 cursor-pointer ${isLiked ? "text-primary" : ""}`}
-            onClick={() => toggleLikeFun({ projectId })}
+            onClick={handleToggleLike}
         >
             <Heart size={18} />
             <span className="">{likes}</span>

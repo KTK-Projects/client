@@ -89,10 +89,12 @@ export const WorkspaceInfo: React.FC = () => {
                             questionsCount={projectQuestionsData?.length}
                         />
                     </div>
-                    <div>
-                        <p className="text-xl mb-4">Вопросы к проекту:</p>
-                        <ProjectQuestionsList />
-                    </div>
+                    {!!projectQuestionsData.length && (
+                        <div>
+                            <p className="text-xl mb-4">Вопросы к проекту:</p>
+                            <ProjectQuestionsList />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

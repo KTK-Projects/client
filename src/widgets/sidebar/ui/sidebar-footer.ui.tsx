@@ -5,7 +5,7 @@ export const SidebarFooter: React.FC = () => {
     return (
         <div>
             <div className="flex items-center gap-4 mt-4 mb-2 justify-between">
-                <p className="opacity-70 text-sm">Котакты разраба: </p>
+                <p className="opacity-70 text-sm">Контакты разраба: </p>
                 <div className="flex items-center gap-3">
                     <a href="https://github.com/rootg00se">
                         <FaGithub size={20} className="opacity-80" />
