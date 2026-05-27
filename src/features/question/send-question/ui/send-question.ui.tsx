@@ -16,7 +16,7 @@ export const SendQuestion: React.FC<ISendQuestionProps> = ({ parentId, className
     const { id } = useParams();
 
     const [question, setQuestion] = useState("");
-    const { createQuestionFunc } = useCreateQuestion();
+    const { createQuestionFunc, isCreateQuestionPending } = useCreateQuestion();
 
     const handleSendQuestion = () => {
         createQuestionFunc({
@@ -39,6 +39,7 @@ export const SendQuestion: React.FC<ISendQuestionProps> = ({ parentId, className
             />
             <div className="mr-2 mb-2">
                 <Button
+                    disabled={isCreateQuestionPending}
                     onClick={handleSendQuestion}
                     size={"sm"}
                     className="ml-[100%] max-sm:hidden -translate-x-full text-[13px]"

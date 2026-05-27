@@ -6,7 +6,12 @@ import { formatChatDate } from "../lib/format-chat-date";
 import { selectUserId } from "@/entities/user";
 import { MessageActions } from "@/features/chat/message-actions";
 
-export const ChatMessages: React.FC<{ chatId: string }> = ({ chatId }) => {
+interface IChatMessagesProps {
+    chatId: string;
+    onMessageSend?: () => void;
+}
+
+export const ChatMessages: React.FC<IChatMessagesProps> = ({ chatId, onMessageSend }) => {
     const userId = selectUserId();
     const editMessage = useChatStore((s) => s.editMessage);
     const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
@@ -26,6 +31,8 @@ export const ChatMessages: React.FC<{ chatId: string }> = ({ chatId }) => {
             top: el.scrollHeight - el.clientHeight,
             behavior: "auto",
         });
+
+        onMessageSend?.();
     }, [chatId, messagesData?.length]);
 
     return (

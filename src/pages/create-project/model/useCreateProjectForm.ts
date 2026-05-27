@@ -10,7 +10,7 @@ export const useCreateProjectForm = () => {
     const [projectTags, setProjectTags] = useState<string[]>([]);
     const [members, setMembers] = useState<IUserResponse[]>([]);
 
-    const { createProjectFunc } = useCreateProject();
+    const { createProjectFunc, isCreateProjectPending } = useCreateProject();
 
     const handleAddTag = (tagName: string) => setProjectTags((prev) => [...prev, tagName]);
     const handleRemoveTag = (tagName: string) => setProjectTags((prev) => prev.filter((t) => t !== tagName));
@@ -32,7 +32,7 @@ export const useCreateProjectForm = () => {
     };
 
     return {
-        state: { title, projectLink, projectTags, members, markdown },
+        state: { title, projectLink, projectTags, members, markdown, isPending: isCreateProjectPending },
         actions: { 
             setTitle, 
             setProjectLink, 

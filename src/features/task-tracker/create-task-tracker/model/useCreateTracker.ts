@@ -20,7 +20,7 @@ export const useCreateTracker = () => {
     });
 
     return {
-        isCreateTrackerPenfing: createTrackerMutation.isPending,
+        isCreateTrackerPending: createTrackerMutation.isPending,
         createTrackerFunc: createTrackerMutation.mutate,
         isCreateTrackerSuccess: createTrackerMutation.isSuccess,
     };

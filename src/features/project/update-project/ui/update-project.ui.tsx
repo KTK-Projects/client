@@ -11,7 +11,7 @@ export const UpdateProject: React.FC = () => {
 
     const { id: projectId } = useParams();
 
-    const { updateFunc } = useUpdateProject();
+    const { updateFunc, isUpdatePending } = useUpdateProject();
     const { projectData } = useProjectById(projectId);
 
     const handleUpdateProject = () => {
@@ -55,7 +55,7 @@ export const UpdateProject: React.FC = () => {
                     />
                 </div>
             </div>
-            <Button onClick={handleUpdateProject}>Сохранить</Button>
+            <Button disabled={isUpdatePending} onClick={handleUpdateProject}>Сохранить</Button>
         </div>
     );
 };

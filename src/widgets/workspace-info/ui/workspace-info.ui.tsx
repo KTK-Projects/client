@@ -37,8 +37,8 @@ export const WorkspaceInfo: React.FC = () => {
     return (
         <div className="_container">
             <div className="mb-5 py-10 flex gap-10 flex-wrap justify-between">
-                <div className="max-w-180">
-                    <div className="flex justify-between">
+                <div className="max-w-180 w-full">
+                    <div className="flex w-full justify-between">
                         <div className="mb-2 flex gap-2 max-xs:flex-col">
                             <h2 className="text-4xl font-semibold max-xs:text-3xl">{projectData.title}</h2>
                             <p className="opacity-60 text-sm">{parseProjectStatus(projectData.status)}</p>

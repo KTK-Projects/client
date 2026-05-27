@@ -102,7 +102,7 @@ export const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ value, onChange,
                     </TabsContent>
 
                     <TabsContent value="preview" className="p-4">
-                        <div className="prose max-w-none prose-pre:border-0 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:border-primary prose-pre:rounded-lg prose-pre:bg-transparent prose-pre:p-0">
+                        <div className="prose max-w-none prose-pre:border-0 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:border-primary prose-pre:rounded-lg prose-pre:bg-transparent prose-pre:p-0 h-125 overflow-auto">
                             <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
                                 {text}
                             </ReactMarkdown>

@@ -11,7 +11,7 @@ interface IUpdateQuestionProps {
 
 export const UpdateQuestion: React.FC<IUpdateQuestionProps> = ({ text, projectId, questionId, onSuccess }) => {
     const [editedText, setEditedText] = useState(text);
-    const { updateFunc } = useUpdateQuestion(projectId);
+    const { updateFunc, isUpdatePending } = useUpdateQuestion(projectId);
 
     const handleUpdateQuestion = () => {
         updateFunc({
@@ -32,7 +32,7 @@ export const UpdateQuestion: React.FC<IUpdateQuestionProps> = ({ text, projectId
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
             />
-            <Button onClick={handleUpdateQuestion}>Сохранить</Button>
+            <Button disabled={isUpdatePending} onClick={handleUpdateQuestion}>Сохранить</Button>
         </div>
     );
 };

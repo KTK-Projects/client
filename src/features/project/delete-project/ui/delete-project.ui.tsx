@@ -18,7 +18,7 @@ import { toast } from "react-toastify";
 
 export const DeleteProject: React.FC = () => {
     const { id: projectId } = useParams();
-    const { deleteProjectFunc } = useDeleteProject();
+    const { deleteProjectFunc, isDeleteProjectPending } = useDeleteProject();
 
     const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ export const DeleteProject: React.FC = () => {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant="outline" className="border-primary">
+                <Button variant="outline" className="border-primary" disabled={isDeleteProjectPending}>
                     <Trash className="text-primary" />
                     <p className="text-primary font-heading">Удалить проект</p>
                 </Button>

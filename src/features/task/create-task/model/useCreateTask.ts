@@ -17,7 +17,7 @@ export const useCreateTask = () => {
     });
 
     return {
-        isCreateTaskPenfing: createTaskMutation.isPending,
+        isCreateTaskPending: createTaskMutation.isPending,
         createTaskFunc: createTaskMutation.mutate,
         isCreateTaskSuccess: createTaskMutation.isSuccess,
     };

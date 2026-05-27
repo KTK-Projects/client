@@ -11,7 +11,7 @@ export const UpdateUser: React.FC<IUpdateUserProps> = ({ displayName, nickname }
     const [displayNameValue, setDisplayNameValue] = useState(displayName || "");
     const [nicknameValue, setNicknameValue] = useState(nickname);
 
-    const { updateFunc } = useUpdateUser();
+    const { updateFunc, isUpdatePending } = useUpdateUser();
 
     const handleUpdateUser = () => {
         updateFunc({
@@ -34,7 +34,7 @@ export const UpdateUser: React.FC<IUpdateUserProps> = ({ displayName, nickname }
                 placeholder="Ваш никнейм" 
                 className="max-sm:text-sm"
              />
-            <Button className="max-w-30 max-sm:text-[13px]" onClick={handleUpdateUser}>Сохранить</Button>
+            <Button disabled={isUpdatePending} className="max-w-30 max-sm:text-[13px]" onClick={handleUpdateUser}>Сохранить</Button>
         </div>
     );
 };

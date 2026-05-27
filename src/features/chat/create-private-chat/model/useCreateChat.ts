@@ -23,7 +23,7 @@ export const useCreateChat = () => {
     });
 
     return {
-        isCreateChatPenfing: createChatMutation.isPending,
+        isCreateChatPending: createChatMutation.isPending,
         createChatFunc: createChatMutation.mutate,
         isCreateChatSuccess: createChatMutation.isSuccess,
     };

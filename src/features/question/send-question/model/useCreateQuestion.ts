@@ -20,7 +20,7 @@ export const useCreateQuestion = () => {
     });
 
     return {
-        isCreateQuestionPenfing: createQuestionMutation.isPending,
+        isCreateQuestionPending: createQuestionMutation.isPending,
         createQuestionFunc: createQuestionMutation.mutate,
         isCreateQuestionSuccess: createQuestionMutation.isSuccess,
     };

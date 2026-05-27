@@ -12,7 +12,7 @@ export const CreateTaskTracker: React.FC = () => {
     const [createMode, setCreateMode] = useState(false);
     const [name, setName] = useState("");
 
-    const { createTrackerFunc } = useCreateTracker();
+    const { createTrackerFunc, isCreateTrackerPending } = useCreateTracker();
 
     const inputRef = useRef<HTMLInputElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -66,7 +66,7 @@ export const CreateTaskTracker: React.FC = () => {
                         onKeyDown={handleKeyDown}
                     />
                     <div className="flex items-center gap-3">
-                        <Button onClick={handleCreateTracker}>Создать</Button>
+                        <Button disabled={isCreateTrackerPending} onClick={handleCreateTracker}>Создать</Button>
                         <X onClick={() => setCreateMode(false)} />
                     </div>
                 </div>

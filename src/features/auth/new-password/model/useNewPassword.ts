@@ -19,6 +19,6 @@ export const useNewPassword = () => {
 
     return {
         newPasswordFunc: newPasswordMutation.mutate,
-        isNewPasswordPenfing: newPasswordMutation.isPending,
+        isNewPasswordPending: newPasswordMutation.isPending,
     };
 };

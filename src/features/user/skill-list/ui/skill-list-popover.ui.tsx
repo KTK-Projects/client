@@ -10,7 +10,7 @@ export const SkillListPopover: React.FC<{ userSkills: Skill[] }> = ({ userSkills
     const [currentSkills, setCurrentSkills] = useState(userSkills);
 
     const { skillsData } = useSkills(query);
-    const { updateSkillsFunc } = useUpdateSkills();
+    const { updateSkillsFunc, isUpdateSkillsPending } = useUpdateSkills();
 
     const handleRemoveSkill = (skill: Skill) => {
         setCurrentSkills((prev) => prev.filter((el) => el.skill_id !== skill.skill_id));
@@ -77,7 +77,7 @@ export const SkillListPopover: React.FC<{ userSkills: Skill[] }> = ({ userSkills
                         ))}
                     </div>
                 </div>
-                <Button onClick={handleUpddateSkills}>Сохранить</Button>
+                <Button disabled={isUpdateSkillsPending} onClick={handleUpddateSkills}>Сохранить</Button>
             </PopoverContent>
         </Popover>
     );

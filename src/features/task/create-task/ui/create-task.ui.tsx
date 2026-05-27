@@ -7,7 +7,7 @@ export const CreateTask: React.FC<{ trackerId: string }> = ({ trackerId }) => {
     const [createMode, setCreateMode] = useState(false);
     const [text, setText] = useState("");
 
-    const { createTaskFunc } = useCreateTask();
+    const { createTaskFunc, isCreateTaskPending } = useCreateTask();
 
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -34,7 +34,7 @@ export const CreateTask: React.FC<{ trackerId: string }> = ({ trackerId }) => {
                         onKeyDown={(e) => e.key === "Enter" && handleCreateTask()}
                     />
                     <div className="flex items-center gap-3">
-                        <Button onClick={handleCreateTask} size="sm" className="text-[12px] max-h-7">
+                        <Button disabled={isCreateTaskPending} onClick={handleCreateTask} size="sm" className="text-[12px] max-h-7">
                             Создать
                         </Button>
                         <X onClick={() => setCreateMode(false)} />

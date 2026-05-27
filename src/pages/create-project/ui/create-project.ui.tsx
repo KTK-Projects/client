@@ -61,7 +61,7 @@ export const CreateProjectPage: React.FC = () => {
                     <MarkdownEditor value={state.markdown} onChange={actions.setMarkdown} />
                 </div>
             </div>
-            <Button onClick={actions.submit}>Создать проект</Button>
+            <Button disabled={state.isPending} onClick={actions.submit}>Создать проект</Button>
         </div>
     );
 };

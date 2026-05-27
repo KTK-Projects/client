@@ -2,7 +2,7 @@ import { useChatStore, useProjectChat } from "@/entities/chat";
 import { selectUserId } from "@/entities/user";
 import { SendMessage } from "@/features/chat/send-message";
 import { ChatMessages } from "@/widgets/chat-messages";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 export const WorkspaceChat: React.FC = () => {
@@ -11,7 +11,19 @@ export const WorkspaceChat: React.FC = () => {
     const { id: projectId } = useParams();
     const { projectChatData } = useProjectChat(projectId);
 
+    const containerRef = useRef<HTMLDivElement>(null);
+
     const { initSocket, disconnect, setActiveChat, joinChat, leaveChat, isConnected } = useChatStore();
+
+    const scrollToChatBottom = () => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        el.scrollTo({
+            top: el.scrollHeight - el.clientHeight,
+            behavior: "auto",
+        });
+    };
 
     useEffect(() => {
         if (userId) {
@@ -20,6 +32,10 @@ export const WorkspaceChat: React.FC = () => {
 
         return () => disconnect();
     }, [userId, initSocket, disconnect]);
+
+    useEffect(() => {
+        scrollToChatBottom();
+    }, []);
 
     useEffect(() => {
         if (!projectChatData?.chat_id) return setActiveChat(null);
@@ -37,8 +53,8 @@ export const WorkspaceChat: React.FC = () => {
 
     return (
         <div className="_container w-full flex flex-col h-full overflow-hidden">
-            <div className="flex-1 overflow-auto">
-                <ChatMessages chatId={projectChatData.chat_id} />
+            <div ref={containerRef} className="flex-1 overflow-auto">
+                <ChatMessages onMessageSend={scrollToChatBottom} chatId={projectChatData.chat_id} />
             </div>
             <SendMessage chatId={projectChatData.chat_id} />
         </div>

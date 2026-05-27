@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export const CreatePrivateChat: React.FC<{ userId: string }> = ({ userId }) => {
     const navigate = useNavigate();
 
-    const { createChatFunc, isCreateChatPenfing } = useCreateChat();
+    const { createChatFunc, isCreateChatPending } = useCreateChat();
     const { chatsData } = useChats();
 
     const handleCreateChat = () => {
@@ -23,7 +23,7 @@ export const CreatePrivateChat: React.FC<{ userId: string }> = ({ userId }) => {
     };
 
     return (
-        <Button onClick={handleCreateChat} disabled={isCreateChatPenfing} className="w-full mb-3 max-w-40">
+        <Button onClick={handleCreateChat} disabled={isCreateChatPending} className="w-full mb-3 max-w-40">
             Написать
         </Button>
     );

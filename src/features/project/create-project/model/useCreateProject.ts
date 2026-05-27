@@ -24,7 +24,7 @@ export const useCreateProject = () => {
     });
 
     return {
-        isCreateProjectPenfing: createProjectMutation.isPending,
+        isCreateProjectPending: createProjectMutation.isPending,
         createProjectFunc: createProjectMutation.mutate,
         isCreateProjectSuccess: createProjectMutation.isSuccess,
     };

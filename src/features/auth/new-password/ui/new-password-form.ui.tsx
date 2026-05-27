@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { newPasswordFormSchema, type NewPasswordFields } from "../model/validation-schemas";
 
 export const NewPasswordForm: React.FC = () => {
-    const { newPasswordFunc, isNewPasswordPenfing } = useNewPassword();
+    const { newPasswordFunc, isNewPasswordPending } = useNewPassword();
     const [searchParams, _] = useSearchParams();
 
     const {
@@ -41,7 +41,7 @@ export const NewPasswordForm: React.FC = () => {
                     <Input {...register("repeatPassword")} id="passwordRepeat" type="password" required />
                     <div className="text-primary text-sm">{errors.repeatPassword?.message}</div>
                 </div>
-                <Button type="submit" className="w-full py-5" disabled={isNewPasswordPenfing}>
+                <Button type="submit" className="w-full py-5" disabled={isNewPasswordPending}>
                     Сбросить пароль
                 </Button>
             </div>
